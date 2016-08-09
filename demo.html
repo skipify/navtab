@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="jquery.navtab.js"></script>
+    <style type="text/css">
+        #topnav{
+            height: 42px;
+            overflow-x: scroll;
+            float:left;
+            width:4000px;
+            background: #ecf0f5;
+        }
+        .nav-box{
+            width:100%;
+            float: left;
+            position:relative;
+            overflow: hidden;
+        }
+        .nav-box .nav-tool{
+            position: absolute;
+            right:0;
+            height:41px;
+            background: #ecf0f5;
+            z-index:992;
+            padding-left:10px;
+        }
+        .nav-tool .lf-btn{
+            height:41px;
+            margin-right:10px;
+            display: none;
+            float:left;
+
+        }
+        .nav-tool .lf-btn a{
+            margin-top:4px;
+            display: inline-block;
+        }
+        .nav-tool a.closeall{
+            margin-right: 20px;
+            margin-top:4px;
+            float:left;
+        }
+
+        #topnav>li{
+            height: 100%;
+        }
+
+
+        #topnav>li>a{
+            padding-right: 25px;
+            float:right;
+        }
+        #topnav>li>a.close{
+            padding:0;
+            border: 0;
+            position:absolute;
+            right:5px;
+            top:5px;
+            z-index:990
+        }
+        #topnav>.active>a.close:hover{
+            border-left: 0px;
+            cursor: pointer;
+        }
+        .tab-pane{
+            height: 650px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="btns">
+    <a href="http://baidu.com">百度</a>
+    <a href="http://mi.com">小米手机</a>
+    <a href="http://163.com">网易新闻</a>
+    <a href="http://qq.com">腾讯官方网站</a>
+    <a href="http://cctv.com">CCTV</a>
+    <a href="http://iqiyi.com">爱奇艺</a>
+    <a href="http://youku.com">优酷视频网站</a>
+    <a href="http://tudou.com">土豆和优酷合并了</a>
+    <a href="http://z.cn">亚马逊购物</a>
+    <a href="http://taobao.com">淘宝购物</a>
+    <a href="http://jd.com">强东和奶茶</a>
+        </div>
+    <!-- Content Header (Page header) -->
+    <div class="nav-box">
+        <ul class="nav nav-tabs" id="topnav" data-taboffset="0" data-toolbox=".nav-tool" data-wrap=".nav-box">
+            <li class="active"><a href="#dashboard" style="padding-right:18px;"><i class="glyphicon glyphicon-home"></i></a></li>
+        </ul>
+        <div class="nav-tool">
+            <div class="lf-btn btn-group">
+                <a href="javascript:;" class="prev btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a href="javascript:;" class="next btn btn-default"><i class="glyphicon glyphicon-chevron-right"></i></a>
+            </div>
+            <a href="javascript:;" class="closeall btn btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+    </div>
+    <div class="tab-content tab-contents" id="topnav-box">
+        <div class="tab-pane fade in active" id="dashboard"><iframe src="http://baidu.com" id="mainfrm" width="100%" height="100%" scrolling="auto" frameborder="0" marginwidth="0" marginheight="0" style="overflow: hidden;"></iframe></div>
+    </div>
+
+    <!-- /.content -->
+</div>
+<script>
+    $("#topnav").navtab({taboffset:50});
+    $('.btns a').click(function(e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        $("#topnav").navtab("add",{
+            title: $(this).text(),
+            url: url
+        });
+    });
+</script>
+</body>
+</html>
